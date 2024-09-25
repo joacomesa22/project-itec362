@@ -1,0 +1,44 @@
+---
+import AmCard from "../components/AmCard.astro";
+import SwiperTriple from "../components/SwiperTriple.astro";
+import Banner from "../components/Banner.astro";
+---
+
+<section class="bg bg-cover bg-no-repeat flex flex-col items-center py-24">
+    <div class="content-wrapper grid grid-cols-2 md:place-items-center gap-6 md:grid-cols-5 w-full">
+        <AmCard
+        title="Relax"
+        imgSrc="/images/relajar.png"
+        items={["Beach Pool", "Solarium", "Pool Bar", "Reading Plaza"]}
+        />
+        <AmCard
+        title="Live"
+        imgSrc="/images/vivir.png"
+        items={["Fresh Delivery Room", "E-commerce Storage", "Bike Station", "Laundry"]}
+        />
+        <AmCard
+        title="Enjoy"
+        class="md:-mt-5"
+        imgSrc="/images/disfrutar.png"
+        items={["Rooftop SkyLiving", "Kids Park", "Coffee Place"]}
+        />
+        <AmCard
+        title="Feel"
+        imgSrc="/images/sentir.png"
+        items={["Chef Table", "SUM", "BBQ", "Wines"]}
+        />
+        <AmCard
+        title="Do"
+        class="md:-mt-5"
+        imgSrc="/images/hacer.png"
+        items={["Coworking", "GYM", "PetBeauty"]}
+        />
+    </div>
+    <SwiperTriple/>
+</section>
+
+<style>
+    .bg{
+        background-image: url("/images/bg.avif");
+    }
+</style>

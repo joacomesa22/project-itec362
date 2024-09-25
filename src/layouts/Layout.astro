@@ -1,4 +1,7 @@
 ---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
 interface Props {
 	title: string;
 }
@@ -17,34 +20,43 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<Navbar/>
 		<slot />
+		<Footer/>
 	</body>
 </html>
 <style is:global>
+	 @font-face {
+    font-family: "FontSpring";
+    src: url("/fonts/fontspring.otf") format("opentype");
+  }
+	 @font-face {
+    font-family: "FontSpring";
+    src: url("/fonts/fontspring-b.otf") format("opentype");
+	font-weight: 600;
+  }
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+		--dark: #191919;
+		--white: #ffffff;
+		--black: #000000;
 	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
+	html{
+		font-family: 'DM Sans Variable', sans-serif;
+		box-sizing: border-box;
+		scroll-behavior: smooth;
+		color: #fff;
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+	h1, h2{
+		font-family: "FontSpring", sans-serif;
+	}
+	.wrapper{
+		max-width: 1600px;
+		padding-right: 1rem;
+		padding-left: 1rem;
+	}
+	.content-wrapper{
+		max-width: 1200px;
+		padding-right: 1rem;
+		padding-left: 1rem;
 	}
 </style>

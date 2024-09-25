@@ -1,0 +1,31 @@
+---
+import Banner from "../components/Banner.astro";
+import Button from "../components/Button.astro";
+---
+
+<section>
+    <Banner heading="units" text="Wayra brings two unique living experiences to choose from"/>
+    <div class="flex flex-col xl:flex-row w-full">
+        <div class="flex justify-center items-center relative flex-1 p-24 md:p-48">
+            <div class="max-w-[400px] flex items-start gap-8 flex-col">
+                <div>
+                    <h2 class="text-5xl font-bold">residences</h2>
+                    <p class="mt-4">Apartment ranging from 60 to 210 m², with 2 to 5 rooms, designed for balance, coexistence, and the pursuit of excellence in daily life.
+                    </p>
+                </div>
+            </div>
+            <img src="/images/perro.webp" alt="Mujer con perro" class="absolute w-full h-full brightness-50 object-cover -z-10">
+        </div>
+        <div class="flex justify-center items-center relative flex-1 p-24 md:p-48">
+            <div class="max-w-[400px] flex items-start gap-8 flex-col">
+                <div>
+                    <h2 class="text-5xl md:text-6xl font-bold">penthouse</h2>
+                    <p class="mt-4">Exclusivity taken to the highest level in 450 m² with a private 160 m² terrace. An ideal home to enjoy and live at a high level.
+                    </p>
+                </div>
+            </div>
+            <img src="/images/estantes.webp" alt="Mujer cocinando" class="absolute w-full h-full brightness-50 object-cover -z-10">
+        </div>
+
+    </div>
+</section>

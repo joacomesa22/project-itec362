@@ -1,0 +1,65 @@
+<div class="swiper h-[80vh] w-full" id="swiper1">
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+        <div class="swiper-slide relative">
+            <div class="flex flex-col items-center text-center flex-wrap md:flex-nowrap w-full max-w-[1200px] px-12 absolute z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 gap-8">
+                <h2 class="text-3xl md:text-5xl font-bold text-balance">natives of the urban experience</h2>
+                <div class="text-sm md:text-base flex flex-col gap-4 max-w-[600px]">
+                    <p>Driven to create sensory experiences that awaken the senses and enrich life.</p>
+                    <p>Each space is designed with experiences that transcend the ordinary and transform routine into memorable moments.</p>
+                </div>
+            </div>
+            <img src="/images/ojazo.webp" alt="Ojo" class="object-cover h-full w-full brightness-50">
+        </div>
+
+        <div class="swiper-slide relative">
+            <div class="flex flex-col items-center text-center flex-wrap md:flex-nowrap w-full max-w-[1200px] px-12 absolute z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 gap-8">
+                <h2 class="text-3xl md:text-5xl font-bold text-balance">Reconnect with nature</h2>
+                <div class="text-sm md:text-base flex flex-col gap-4 max-w-[600px]">
+                    <p>We embrace the concept as a life philosophy rooted in the very essence of existence</p>
+                    <p>We draw inspiration from childhood memories, where life was simple, genuine, and full of discoveries.</p>
+                    <p>Every space we create aims to capture that feeling of play and simplicity, where the revealing and unique are found in the beauty of the simple.</p>
+                </div>
+            </div>
+            <img src="/images/planta.webp" alt="Ojo a traves de una planta" class="object-cover h-full w-full brightness-50">
+        </div>
+
+        <div class="swiper-slide relative">
+            <div class="flex flex-col items-center text-center flex-wrap md:flex-nowrap w-full max-w-[1200px] px-12 absolute z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 gap-8">
+                <h2 class="text-3xl md:text-5xl font-bold text-balance">The habit of comfort</h2>
+                <div class="text-sm md:text-base flex flex-col gap-4 max-w-[600px]">
+                    <p>In our constant pursuit of elevating quality of life, comfort takes center stage.</p>
+                    <p>We redefine how a development can simplify daily life by providing practical services and spaces designed for modern needs.</p>
+                </div>
+            </div>
+            <img src="/images/cocinando.webp" alt="Mujer cocinando" class="object-cover h-full w-full brightness-50">
+        </div>
+       
+       
+    </div>
+  
+    <!-- Navigation -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+</div> 
+<script>
+    import Swiper from 'swiper';
+    import { Navigation } from 'swiper/modules';
+    import 'swiper/css';
+    import 'swiper/css/navigation';
+    const swiper1 = new Swiper('#swiper1', {
+        modules: [Navigation],
+        slidesPerView: 1,
+        loop: true,   
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+</script>
+<style>
+    .swiper-button-next, .swiper-button-prev {
+        color: #ffffff;
+    }
+</style>

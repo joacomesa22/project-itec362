@@ -1,0 +1,18 @@
+---
+interface Props{
+    imgSrc: string;
+    title: string;
+    items: string[];
+    class?: string;
+}
+const {imgSrc,title, items, class: className} = Astro.props
+---
+<div class:list={["w-full max-w-[300px] flex flex-col items-start gap-2", className]}>
+    <img src={imgSrc} alt="Experiencia en Wayra" class="w-full"/>
+    <h2 class="text-4xl">{title}</h2>
+    <ul class="w-full">
+        {
+            items.map(item => <li>{item}</li>)
+        }
+    </ul>
+</div>

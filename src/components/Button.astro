@@ -1,0 +1,9 @@
+---
+interface Props {
+    link: string;
+    class?: string
+    dark?: boolean
+}
+const {link, dark, class: className} = Astro.props
+---
+<a href={link} class:list={[`text-center p-4 border-2 hover:backdrop-blur-md duration-300 ${dark && "border-[var(--black)] text-[var(--black)]"}`, className]}><slot/></a>

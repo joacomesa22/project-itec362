@@ -1,0 +1,72 @@
+---
+import Button from "./Button.astro";
+---
+<header id="header-nav" class="flex justify-center fixed w-full z-20 pt-2 duration-500">
+    <div class="wrapper w-full grid grid-cols-2 md:grid-cols-3 place-items-center">
+        <div class="toggleMenu flex justify-center items-center gap-2 cursor-pointer justify-self-start z-50">
+            <img src="/images/menu.png" alt="Hamburguer Menu" class="max-w-[32px]">
+            Menu
+        </div>
+        <div class="justify-self-end md:justify-self-center">
+          <a href="/" >
+            <img src="/images/logo-wayra.png" alt="Logo Wayra" class="object-contain w-full max-w-[200px] h-24">
+          </a>
+        </div>
+        <Button link="https://wa.me/5491134240811?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20de%20WAYRA" class="justify-self-end hidden md:block">GET MORE INFORMATION</Button>
+    </div>
+</header>
+<div
+class=" fixed flex justify-center w-full md:w-[20%] -left-full duration-500 z-40 border-r border-[var(--white)]"
+id="toggle"
+>
+<nav
+  class="flex flex-col items-start pl-12 justify-start gap-8 pt-32 w-full h-screen header__bg relative"
+>
+  <div class="toggleMenu flex justify-center items-center gap-2 cursor-pointer justify-self-start absolute top-[44px] left-[44px]">
+    <img src="/images/close.svg" alt="Close Menu" class="max-w-[32px]">
+    Close
+  </div>
+  <a href="/" class="toggleMenu">Home</a>
+  <a href="/amenities" class="toggleMenu">Amenities</a>
+  <a href="/contact" class="toggleMenu">Contact</a>
+  <Button link="https://wa.me/5491134240811?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20de%20WAYRA" class="justify-self-end md:hidden">GET MORE INFORMATION</Button>
+</nav>
+</div>
+
+<style>
+  #toggle.active {
+    left: 0;
+  }
+
+  .header__bg{
+    box-shadow:
+        0px 5px 50px -5px rgba(0, 0, 0, 0.1),
+        0px 0px 0 1px rgba(0, 0, 0, 0.3);
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+  }
+</style>
+
+<script>
+    const toggleNav = document.querySelectorAll(".toggleMenu");
+    const navLinks = document.querySelector("#toggle");
+
+    toggleNav.forEach((btn) => { 
+        btn.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+    })
+
+    // Navbar Scroll Bg
+    window.addEventListener("scroll", headerBg);
+    function headerBg() {
+      const header = document.querySelector("#header-nav");
+      const scrollVal = window.scrollY;
+      if (scrollVal > 400) {
+        header.classList.add("header__bg");
+      } else {
+        header.classList.remove("header__bg");
+      }
+    }
+
+</script>
