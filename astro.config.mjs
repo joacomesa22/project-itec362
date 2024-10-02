@@ -7,7 +7,6 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://project-itec362.vercel.app/",
   integrations: [
-    tailwind(),
     mdx(),
     sitemap(),
     partytown({
@@ -15,5 +14,6 @@ export default defineConfig({
         forward: ["dataLayer.push"],
       },
     }),
+    tailwind(),
   ],
 });
