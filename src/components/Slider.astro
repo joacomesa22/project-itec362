@@ -1,12 +1,77 @@
 <section class="flex flex-col gap-[10px] py-[10px]">
     <div class="scroller" data-direction="right" data-speed="slow">
-        <div>
+        <div class="scroller__inner">
             <slot name="firstRow"/>
         </div>
     </div>
     <div class="scroller" data-direction="left" data-speed="slow">
-        <div>
+        <div class="scroller__inner">
+
             <slot name="secondRow"/>
         </div>
     </div>
 </section>
+
+<style>
+    .scroller {
+        width: 100%;
+    }
+
+    .scroller__inner {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .scroller[data-animated="true"] {
+        overflow: hidden;
+    }
+
+    .scroller[data-animated="true"] .scroller__inner {
+        width: max-content;
+        flex-wrap: nowrap;
+        animation: scroll var(--_animation-duration, 40s)
+        var(--_animation-direction, forwards) linear infinite;
+    }
+
+    .scroller[data-direction="right"] {
+        --_animation-direction: reverse;
+    }
+
+    .scroller[data-direction="left"] {
+        --_animation-direction: forwards;
+    }
+
+    .scroller {
+      --_animation-duration: 60s;
+    }
+
+    @keyframes scroll {
+        to {
+            transform: translate(calc(-50% - 0.5rem));
+        }
+    }
+</style>
+
+<script>
+    const scrollers = document.querySelectorAll(".scroller");
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    addAnimation();
+    }
+
+    function addAnimation() {
+        scrollers.forEach((scroller) => {
+            scroller.setAttribute("data-animated", "true");
+
+            const scrollerInner = scroller.querySelector(".scroller__inner");
+            const scrollerContent = Array.from(scrollerInner.children);
+
+            scrollerContent.forEach((item) => {
+                const duplicatedItem = item.cloneNode(true) as HTMLElement
+                duplicatedItem.setAttribute("aria-hidden", "true");
+                scrollerInner.appendChild(duplicatedItem);
+            });
+        });
+    }
+</script>
